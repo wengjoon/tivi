@@ -1,0 +1,535 @@
+<br />
+<b>Notice</b>:  file_put_contents(): Write of 55 bytes failed with errno=32 Broken pipe in <b>/Users/mouadbrody/Downloads/nameee/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php</b> on line <b>21</b><br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>TikTok Viewer - Anonymous TikTok Profile & Video Viewer | No Login Required</title>
+    <meta name="description" content="Browse TikTok profiles and videos anonymously without logging in. View any TikTok creator's content privately with our free anonymous viewer - no account required.">
+    <meta name="keywords" content="tiktok viewer, anonymous tiktok, tiktok profile viewer, tiktok without account, private tiktok viewing, tiktok video downloader, watch tiktok anonymously">
+    
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="http://localhost:8001">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8001">
+    <meta property="og:title" content="TikTok Viewer - Anonymous TikTok Profile & Video Viewer">
+    <meta property="og:description" content="Browse TikTok profiles and videos anonymously without logging in. View any TikTok creator's content privately with our free anonymous viewer.">
+    <meta property="og:image" content="https://tiktokfame.net/images/tiktok-viewer-og.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://localhost:8001">
+    <meta name="twitter:title" content="TikTok Viewer - Anonymous TikTok Profile & Video Viewer">
+    <meta name="twitter:description" content="Browse TikTok profiles and videos anonymously without logging in. View any TikTok creator's content privately.">
+    <meta name="twitter:image" content="https://tiktokfame.net/images/tiktok-viewer-og.jpg">
+    
+    <meta name="google-analytics-id" content="">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PTZLTK0KFQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PTZLTK0KFQ');
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #000000;
+            padding: 1rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fe2c55;
+        }
+        .logo i {
+            margin-right: 5px;
+        }
+        .header-search {
+            max-width: 300px;
+        }
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .search-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        .search-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #555;
+        }
+        .search-box {
+            position: relative;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .search-input {
+            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid #ddd;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        .search-input:focus {
+            border-color: #fe2c55;
+            box-shadow: 0 4px 20px rgba(254, 44, 85, 0.2);
+        }
+        .search-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 0 1.5rem;
+            border-radius: 0 50px 50px 0;
+            border: none;
+            background-color: #fe2c55;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .search-button:hover {
+            background-color: #e6254d;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 4rem auto;
+            max-width: 900px;
+        }
+        .feature {
+            text-align: center;
+            max-width: 250px;
+            margin: 1rem;
+        }
+        .feature i {
+            font-size: 3rem;
+            color: #fe2c55;
+            margin-bottom: 1rem;
+        }
+        .feature h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .feature p {
+            color: #666;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .faq-section {
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+        .faq-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        .accordion-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .accordion-header {
+            background-color: #f8f9fa;
+        }
+        .accordion-button {
+            font-weight: 600;
+            color: #333;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #f0f0f0;
+            color: #fe2c55;
+        }
+        .trending-videos-section {
+            padding: 2rem 0;
+        }
+        .trending-videos-section .tiktok-video-container {
+            background-color: #000;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            position: relative;
+            padding-top: 177.77%; /* Aspect ratio for TikTok vertical videos (9:16) */
+            max-height: 500px; /* Limit maximum height */
+        }
+        .trending-videos-section .card {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border-radius: 8px;
+            height: auto !important; /* Override h-100 to allow natural height */
+            display: flex;
+            flex-direction: column;
+        }
+        .trending-videos-section .card:hover {
+            transform: translateY(-5px);
+        }
+        .trending-videos-section .card-body {
+            flex: 1 0 auto; /* Allow card body to take remaining space */
+        }
+        .trending-videos-section .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .trending-videos-section .card-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .trending-videos-section .btn-outline-danger {
+            border-color: #fe2c55;
+            color: #fe2c55;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.75rem;
+        }
+        .trending-videos-section .btn-outline-danger:hover {
+            background-color: #fe2c55;
+            color: white;
+        }
+        .trending-videos-section .text-muted {
+            color: #6c757d !important;
+        }
+        .trending-videos-section .fa-heart,
+        .trending-videos-section .fa-comment,
+        .trending-videos-section .fa-share {
+            color: #fe2c55;
+        }
+        .trending-videos-section .alert-info {
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+            color: #6c757d;
+        }
+        .trending-videos-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Changed from cover to contain to show the full video */
+            background-color: #000;
+        }
+        /* Mobile optimization */
+        @media (max-width: 767.98px) {
+            .trending-videos-section .tiktok-video-container {
+                padding-top: 150%; /* Slightly smaller on mobile */
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="http://localhost:8001">
+                <i class="fab fa-tiktok"></i> TikTok Viewer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="http://localhost:8001">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8001/how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8001/popular-tiktok-profiles">Popular Profiles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8001/tiktok-tips">TikTok Tips</a>
+                    </li>
+                </ul>
+                <form class="d-flex header-search" action="http://localhost:8001/user" method="GET">
+                    <input class="form-control me-2" type="search" name="username" placeholder="TikTok Username (e.g., @tiktok)">
+                    <button class="btn btn-danger" type="submit">Go</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <div class="search-container">
+            <h1 class="search-title">Anonymous TikTok Profile Viewer</h1>
+            <p class="search-subtitle">View any TikTok profile, stats, and videos without logging in or showing that you viewed them</p>
+            
+            <div class="search-box">
+                <form action="http://localhost:8001/user" method="GET">
+                    <input type="text" class="search-input" name="username" placeholder="Enter TikTok username (e.g., tiktok or @tiktok)" required>
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-eye-slash"></i>
+                <h3>100% Anonymous</h3>
+                <p>View profiles without notifications being sent to the user.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast & Reliable</h3>
+                <p>Get quick access to profile details and videos.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock"></i>
+                <h3>No Login Required</h3>
+                <p>No need to create an account or log in to view profiles.</p>
+            </div>
+        </div>
+
+        <!-- Trending Videos Section -->
+                <div class="trending-videos-section mt-5">
+            <h2 class="text-center mb-4">Trending Videos in United States (US)</h2>
+            <div class="row g-4">
+                                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="tiktok-video-container ratio">
+                                                                    <video controls poster="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-p-0037-no/o8uCUFfERgD5o8kk4QB9R5AtBiIhFcEfD9c1XP~tplv-tiktok-shrink:640:640.jpeg?dr=14571&amp;refresh_token=7f18f250&amp;x-expires=1746511200&amp;x-signature=teQNmXpNb3lRj092Nj%2BZ1BgF3IQ%3D&amp;t=4d5b0474&amp;ps=13740610&amp;shp=d05b14bd&amp;shcp=34ff8df6&amp;idc=maliva&amp;s=FEED">
+                                        <source src="https://v16m-default.tiktokcdn.com/775bebcf38179ac461b57fc4db90993e/6818b20c/video/tos/no1a/tos-no1a-ve-0068-no/osxQde75rA37AjDzAgLIHvIG5eEpy2rILIDweR/?a=30192&amp;bti=OHYpOTY0Zik3OjlmOm01MzE6ZDQ0MDo%3D&amp;ch=0&amp;cr=13&amp;dr=0&amp;er=0&amp;lr=all&amp;net=0&amp;cd=0%7C0%7C0%7C&amp;cv=1&amp;br=2728&amp;bt=1364&amp;cs=0&amp;ds=6&amp;ft=EeF4ntZWD00Q12NvOHpOWIxRUIQyhF_45SY&amp;mime_type=video_mp4&amp;qs=0&amp;rc=ZDo3NDY6NmgzPGVmNmdoNUBpM2RzN3g5cnlvMzMzbzczNUBfMzQuYDU1NmIxM2NgMTUwYSM2bTZyMmQ0cjRhLS1kMTFzcw%3D%3D&amp;vvpl=1&amp;l=202505051440406692648FA9F73F75AAE9&amp;btag=e00090000" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">#storm #terriblethunder #lightning #satisfyingvide...</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-heart"></i> 977,508
+                                        <i class="fas fa-comment ms-2"></i> 12,570
+                                        <i class="fas fa-share ms-2"></i> 129,846
+                                    </small>
+                                </p>
+                                                                    <a href="http://localhost:8001/user/ruizqdip6mx" class="btn btn-outline-danger btn-sm">
+                                        View Profile
+                                    </a>
+                                                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="tiktok-video-container ratio">
+                                                                    <video controls poster="https://p16-sign-va.tiktokcdn.com/tos-maliva-i-photomode-us/00f49e9b770b41a781a2c05a71838ff9~tplv-photomode-image-v1:q70.webp?dr=14555&amp;from=photomode.FEED&amp;ftpl=1&amp;idc=maliva&amp;ps=13740610&amp;refresh_token=86cea994&amp;s=FEED&amp;shcp=34ff8df6&amp;shp=d05b14bd&amp;t=4d5b0474&amp;x-expires=1747720800&amp;x-signature=XHjr4RWvPTJBe6LEl2WzkkMPyfU%3D">
+                                        <source src="https://p16-va-default.akamaized.net/obj/musically-maliva-obj/7455686948454959877.mp3" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">I will be having my maiden concert on 29 August th...</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-heart"></i> 9,940
+                                        <i class="fas fa-comment ms-2"></i> 337
+                                        <i class="fas fa-share ms-2"></i> 24
+                                    </small>
+                                </p>
+                                                                    <a href="http://localhost:8001/user/daxvibezofficial" class="btn btn-outline-danger btn-sm">
+                                        View Profile
+                                    </a>
+                                                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="tiktok-video-container ratio">
+                                                                    <video controls poster="https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/owAzaP1BIiBBAYoOzIG8KSPVBKAENS4tNaETi~tplv-tiktok-shrink:640:640.jpeg?dr=14571&amp;refresh_token=e41cf5ef&amp;x-expires=1746511200&amp;x-signature=aAGpgEaNdXArYqYnSf0qbxJnixY%3D&amp;t=4d5b0474&amp;ps=13740610&amp;shp=d05b14bd&amp;shcp=34ff8df6&amp;idc=maliva&amp;s=FEED">
+                                        <source src="https://v16m-default.tiktokcdn.com/083c71246f24170108f248057ebef9ec/6818b1ea/video/tos/alisg/tos-alisg-pve-0037c001/ogPST4aSHAAzEYVQBIc8NbOByiLABBHiEI1DN/?a=30192&amp;bti=Ozk3QGo4dik3OjlmMzAuYCM6bTQ0MDo%3D&amp;ch=0&amp;cr=13&amp;dr=0&amp;er=0&amp;lr=all&amp;net=0&amp;cd=0%7C0%7C0%7C&amp;cv=1&amp;br=1596&amp;bt=798&amp;cs=0&amp;ds=6&amp;ft=EeF4ntZWD00Q12Nv3HpOWIxRBDQyhF_45SY&amp;mime_type=video_mp4&amp;qs=0&amp;rc=NWUzaTk1ODc0aWg4ZzU5ZEBpamxvNm05cjM2MzMzODczNEAzY2AzNDYzXy8xL18zMWI1YSNuMzZyMmQ0ZDZhLS1kMTFzcw%3D%3D&amp;vvpl=1&amp;l=2025050514404071D15B5B98A15AF6DFBF&amp;btag=e00088000" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Right Message Agree 💯👍🏻 #islamic_video #tariqja...</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-heart"></i> 97,716
+                                        <i class="fas fa-comment ms-2"></i> 853
+                                        <i class="fas fa-share ms-2"></i> 13,788
+                                    </small>
+                                </p>
+                                                                    <a href="http://localhost:8001/user/islamic_.wri8s" class="btn btn-outline-danger btn-sm">
+                                        View Profile
+                                    </a>
+                                                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+            </div>
+
+    <!-- FAQ Section with Schema.org FAQ Markup -->
+    <div class="container faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can I view TikTok profiles anonymously?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Simply enter the TikTok username in the search box above. Our service will fetch the profile information and videos without requiring you to log in to TikTok or leave any trace that you viewed the profile.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Is TikTok Viewer completely free to use?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, TikTok Viewer is 100% free to use. You don't need to create an account, provide any personal information, or pay for any services. We believe in providing open access to public content.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Can TikTok users see that I viewed their profile?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        No, TikTok users cannot see that you viewed their profile when using our service. Our platform acts as an intermediary, so your identity is never revealed to the TikTok user whose profile you're viewing.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I view private TikTok profiles?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        No, our service can only display content that is publicly available on TikTok. Private profiles and content restricted by the creator cannot be viewed through our platform or any other third-party service.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Why use TikTok Viewer instead of the TikTok app?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        TikTok Viewer offers several advantages: complete anonymity when viewing profiles, no account required, no data collection about your viewing habits, faster browsing experience without ads, and the ability to view content without installing the TikTok app.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schema.org FAQPage Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How can I view TikTok profiles anonymously?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simply enter the TikTok username in the search box above. Our service will fetch the profile information and videos without requiring you to log in to TikTok or leave any trace that you viewed the profile."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is TikTok Viewer completely free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, TikTok Viewer is 100% free to use. You don't need to create an account, provide any personal information, or pay for any services. We believe in providing open access to public content."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can TikTok users see that I viewed their profile?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, TikTok users cannot see that you viewed their profile when using our service. Our platform acts as an intermediary, so your identity is never revealed to the TikTok user whose profile you're viewing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I view private TikTok profiles?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, our service can only display content that is publicly available on TikTok. Private profiles and content restricted by the creator cannot be viewed through our platform or any other third-party service."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why use TikTok Viewer instead of the TikTok app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TikTok Viewer offers several advantages: complete anonymity when viewing profiles, no account required, no data collection about your viewing habits, faster browsing experience without ads, and the ability to view content without installing the TikTok app."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- WebSite Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TikTok Viewer - Anonymous TikTok Profile & Video Viewer",
+        "url": "http://localhost:8001",
+        "description": "Browse TikTok profiles and videos anonymously without logging in. View any TikTok creator's content privately with our free anonymous viewer - no account required.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "http://localhost:8001/search?username={search_term}",
+            "query-input": "required name=search_term"
+        }
+    }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>TikTok Viewer is not affiliated with TikTok. This is a third-party application.</p>
+            <p>&copy; 2025 TikTok Viewer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
