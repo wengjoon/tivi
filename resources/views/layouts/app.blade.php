@@ -42,6 +42,9 @@
         .logo i {
             margin-right: 5px;
         }
+        .logo span {
+            color: #ff0050;
+        }
         .header-search {
             max-width: 300px;
         }
@@ -61,16 +64,6 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #f1f1f1;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        @yield('additional-styles')
-        .logo span {
-            color: #ff0050;
         }
         .form-control:focus, .btn:focus {
             box-shadow: none;
@@ -171,6 +164,8 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
+        
+        @yield('additional-styles')
     </style>
 </head>
 <body>
