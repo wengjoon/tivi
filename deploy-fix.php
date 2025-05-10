@@ -9,16 +9,15 @@
 
 echo "Starting deployment fix script...\n";
 
-// Increase memory limit and execution time
-ini_set('memory_limit', '2G');
-ini_set('max_execution_time', 900);
-
-// Define the artisan command function
+// Define the artisan command function with memory limit
 function runArtisanCommand($command) {
-    echo "Running: php artisan $command\n";
+    $php_binary = '/opt/plesk/php/8.2/bin/php'; // Use the specific PHP binary path
+    $memory_limit = '1G';
+    
+    echo "Running: $php_binary -d memory_limit=$memory_limit artisan $command\n";
     $output = [];
     $return_var = 0;
-    exec("php artisan $command 2>&1", $output, $return_var);
+    exec("$php_binary -d memory_limit=$memory_limit artisan $command 2>&1", $output, $return_var);
     
     foreach ($output as $line) {
         echo "  $line\n";
@@ -34,21 +33,28 @@ function runArtisanCommand($command) {
     return $return_var === 0;
 }
 
-// Clear all caches
+// Run each command with a small delay between them
 echo "Clearing caches...\n";
 runArtisanCommand('cache:clear');
+sleep(2);
 runArtisanCommand('config:clear');
+sleep(2);
 runArtisanCommand('route:clear');
+sleep(2);
 runArtisanCommand('view:clear');
+sleep(2);
 
 // Run package discovery manually
 echo "Running package discovery...\n";
 runArtisanCommand('package:discover --ansi');
+sleep(2);
 
 // Optimize the application
 echo "Optimizing application...\n";
 runArtisanCommand('optimize');
+sleep(2);
 runArtisanCommand('view:cache');
+sleep(2);
 
 // Cache routes in production
 if (getenv('APP_ENV') === 'production') {
@@ -57,4 +63,11 @@ if (getenv('APP_ENV') === 'production') {
 }
 
 echo "Deployment fix script completed!\n";
-echo "If you still encounter issues, try running 'composer install --no-scripts' followed by 'php deploy-fix.php'\n"; 
+echo "If you still encounter issues, try running these commands individually:\n";
+echo "$php_binary -d memory_limit=1G artisan cache:clear\n";
+echo "$php_binary -d memory_limit=1G artisan config:clear\n";
+echo "$php_binary -d memory_limit=1G artisan route:clear\n";
+echo "$php_binary -d memory_limit=1G artisan view:clear\n";
+echo "$php_binary -d memory_limit=1G artisan package:discover --ansi\n";
+echo "$php_binary -d memory_limit=1G artisan optimize\n";
+echo "$php_binary -d memory_limit=1G artisan view:cache\n"; 
