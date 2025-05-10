@@ -14,6 +14,31 @@ handle_error() {
     exit 1
 }
 
+# Function to compare versions without bc
+version_compare() {
+    local version1=$1
+    local version2=$2
+    local IFS=.
+    local i ver1=($version1) ver2=($version2)
+    
+    # Fill empty arrays in shorter version with zeros
+    for ((i=${#ver1[@]}; i<${#ver2[@]}; i++)); do
+        ver1[i]=0
+    done
+    for ((i=${#ver2[@]}; i<${#ver1[@]}; i++)); do
+        ver2[i]=0
+    done
+    
+    for ((i=0; i<${#ver1[@]}; i++)); do
+        if [[ ${ver1[i]} -gt ${ver2[i]} ]]; then
+            return 1
+        elif [[ ${ver1[i]} -lt ${ver2[i]} ]]; then
+            return 2
+        fi
+    done
+    return 0
+}
+
 # Function to check PHP version
 check_php_version() {
     local required_version="8.2"
@@ -23,7 +48,10 @@ check_php_version() {
         handle_error "Could not determine PHP version"
     fi
     
-    if (( $(echo "$current_version < $required_version" | bc -l) )); then
+    version_compare "$current_version" "$required_version"
+    local compare_result=$?
+    
+    if [ $compare_result -eq 2 ]; then
         log "⚠️ Current PHP version ($current_version) is lower than required version ($required_version)"
         log "Please upgrade PHP using one of these methods:"
         log ""
