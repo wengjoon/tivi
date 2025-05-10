@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Artisan;
 
 class PerformanceServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,9 @@ class PerformanceServiceProvider extends ServiceProvider
     {
         // Enable route caching in production
         if (Config::get('performance.route_cache.enabled') && app()->environment('production')) {
-            $this->app['router']->cache();
+            if (!file_exists(base_path('bootstrap/cache/routes.php'))) {
+                Artisan::call('route:cache');
+            }
         }
 
         // Enable view caching
