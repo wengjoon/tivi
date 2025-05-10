@@ -1,6 +1,0 @@
-User-agent: *
-Disallow:
-
-Disallow: /sitemaps/sitemap-*.xml
-
-Sitemap: https://tiktokfame.net/sitemaps/sitemap.xml
