@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
@@ -19,13 +30,9 @@
     <!-- Primary Meta Tags -->
     @yield('meta-tags')
     
-    <!-- Google Analytics -->
-    @include('components.google-analytics')
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- Critical CSS -->
     <style>
+        /* Critical path CSS */
         body {
             background-color: #f8f9fa;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,86 +94,14 @@
             padding: 2rem 0;
             margin-top: 3rem;
         }
-        .feature {
-            border: 1px solid #dee2e6;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            background-color: #ffffff;
-            height: 100%;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .feature-icon {
-            background-color: #ff0050;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        .hero-section {
-            padding: 4rem 0;
-            background-color: #f2f2f2;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Trending Videos specific styling */
-        .tiktok-video-container {
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-            background-color: #000;
-            max-height: 500px;
-        }
-        
-        .tiktok-video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #000;
-        }
-        
-        /* Custom ratio for TikTok videos */
-        .ratio-9x16 {
-            --bs-aspect-ratio: calc(16 / 9 * 100%);
-            max-height: 500px;
-        }
-        
-        @media (max-width: 768px) {
-            .ratio-9x16 {
-                --bs-aspect-ratio: calc(16 / 9 * 100%);
-                max-height: 400px;
-            }
-        }
-        
-        .video-item {
-            margin-bottom: 25px;
-        }
-        
-        .card {
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        @yield('additional-styles')
     </style>
+    
+    <!-- Non-critical CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Google Analytics - Load asynchronously -->
+    @include('components.google-analytics')
 </head>
 <body>
     <!-- Navbar -->
@@ -251,7 +186,91 @@
 
     @yield('schema-markup')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Non-critical CSS -->
+    <style>
+        .feature {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            background-color: #ff0050;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .hero-section {
+            padding: 4rem 0;
+            background-color: #f2f2f2;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Trending Videos specific styling */
+        .tiktok-video-container {
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            background-color: #000;
+            max-height: 500px;
+        }
+        
+        .tiktok-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #000;
+        }
+        
+        /* Custom ratio for TikTok videos */
+        .ratio-9x16 {
+            --bs-aspect-ratio: calc(16 / 9 * 100%);
+            max-height: 500px;
+        }
+        
+        @media (max-width: 768px) {
+            .ratio-9x16 {
+                --bs-aspect-ratio: calc(16 / 9 * 100%);
+                max-height: 400px;
+            }
+        }
+        
+        .video-item {
+            margin-bottom: 25px;
+        }
+        
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @yield('additional-styles')
+    </style>
+
+    <!-- Defer non-critical JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     @yield('scripts')
 </body>
 </html> 
