@@ -14,21 +14,59 @@ handle_error() {
     exit 1
 }
 
+# Function to check PHP version
+check_php_version() {
+    local required_version="8.2"
+    local current_version=$(php -v | grep -oE 'PHP [0-9]+\.[0-9]+' | cut -d' ' -f2)
+    
+    if [ -z "$current_version" ]; then
+        handle_error "Could not determine PHP version"
+    fi
+    
+    if (( $(echo "$current_version < $required_version" | bc -l) )); then
+        log "⚠️ Current PHP version ($current_version) is lower than required version ($required_version)"
+        log "Please upgrade PHP using one of these methods:"
+        log ""
+        log "For CentOS/RHEL:"
+        log "1. Install EPEL and REMI repositories:"
+        log "   sudo dnf install epel-release"
+        log "   sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm"
+        log ""
+        log "2. Enable PHP 8.2 repository:"
+        log "   sudo dnf module reset php"
+        log "   sudo dnf module enable php:remi-8.2"
+        log ""
+        log "3. Install PHP 8.2:"
+        log "   sudo dnf install php php-cli php-fpm php-common php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json"
+        log ""
+        log "For Ubuntu/Debian:"
+        log "1. Add PHP repository:"
+        log "   sudo add-apt-repository ppa:ondrej/php"
+        log "   sudo apt update"
+        log ""
+        log "2. Install PHP 8.2:"
+        log "   sudo apt install php8.2 php8.2-cli php8.2-common php8.2-curl php8.2-mbstring php8.2-xml php8.2-zip php8.2-mysql php8.2-fpm"
+        log ""
+        log "After upgrading PHP, run this script again."
+        exit 1
+    fi
+    
+    log "✅ PHP version $current_version meets requirements"
+}
+
 # Trap errors
 trap 'handle_error "An error occurred on line $LINENO"' ERR
 
 log "🚀 Starting deployment process..."
 
+# Check PHP version
+check_php_version
+
 # Check if composer is installed
 if ! command -v composer &> /dev/null; then
     handle_error "Composer is not installed. Please install Composer first."
 fi
-
-# Check PHP version
-PHP_VERSION=$(php -v | grep -oE 'PHP [0-9]+\.[0-9]+' | cut -d' ' -f2)
-if (( $(echo "$PHP_VERSION < 8.1" | bc -l) )); then
-    handle_error "PHP version must be 8.1 or higher. Current version: $PHP_VERSION"
-fi
+log "✅ Composer detected"
 
 # Install dependencies with timeout and retry
 log "📦 Installing dependencies..."
